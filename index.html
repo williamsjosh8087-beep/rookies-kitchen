@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rookies Kitchen — Order Now</title>
+<meta name="description" content="The Rookies Kitchen — bold flavors, made fresh. Order straight to WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">THE ROOKIES<span>KITCHEN</span></a>
+    <nav class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#watch">Watch</a>
+      <a href="#about">Story</a>
+      <a href="#contact">Find Us</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="Open order ticket">
+      <span class="cart-icon">🧾</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg">
+    <!-- Replace this div's background-image in style.css (.hero-bg) with your own hero photo -->
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">FRESH · FAST · FIRE</p>
+    <h1 class="hero-title">ROOKIE<br>MOVES<br>ONLY.</h1>
+    <p class="hero-sub">Bold plates cooked to order. Tap, build your tray, send it straight to our kitchen on WhatsApp.</p>
+    <a href="#menu" class="btn btn-primary">See The Menu ↓</a>
+  </div>
+  <div class="hero-ticker">
+    <div class="ticker-track">
+      <span>SUYA PLATES</span><span>•</span><span>JOLLOF THAT SLAPS</span><span>•</span><span>SMASH BURGERS</span><span>•</span><span>SHAWARMA</span><span>•</span><span>ICE COLD DRINKS</span><span>•</span>
+      <span>SUYA PLATES</span><span>•</span><span>JOLLOF THAT SLAPS</span><span>•</span><span>SMASH BURGERS</span><span>•</span><span>SHAWARMA</span><span>•</span><span>ICE COLD DRINKS</span><span>•</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu-section" id="menu">
+  <div class="section-head">
+    <p class="eyebrow">THE MENU</p>
+    <h2>Pick your plate.</h2>
+  </div>
+
+  <div class="menu-tabs" id="menuTabs">
+    <button class="tab active" data-cat="mains">Mains</button>
+    <button class="tab" data-cat="sides">Sides</button>
+    <button class="tab" data-cat="drinks">Drinks</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid"><!-- populated by script.js --></div>
+</section>
+
+<!-- ============ VIDEO / WATCH ============ -->
+<section class="watch-section" id="watch">
+  <div class="section-head light">
+    <p class="eyebrow">FROM THE KITCHEN</p>
+    <h2>Watch it made.</h2>
+  </div>
+  <div class="video-grid">
+    <div class="video-wrap">
+      <!-- Replace VIDEO_ID_1 with your YouTube video ID (the part after v= in the URL) -->
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Rookies Kitchen video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrap">
+      <!-- Replace VIDEO_ID_2 with another YouTube video ID -->
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Rookies Kitchen video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-img">
+      <!-- Replace background in style.css .about-img with a kitchen/team photo -->
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">OUR STORY</p>
+      <h2>Started rookie.<br>Cooking pro.</h2>
+      <p>The Rookies Kitchen started with one grill, one recipe book, and zero shortcuts. Every plate that leaves our kitchen is made fresh, no reheats, no shortcuts, just real food made by people who care about what lands on your plate.</p>
+      <p>What began small has grown one order at a time — and every order still gets the same rookie hunger to get it right.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact-section" id="contact">
+  <div class="section-head">
+    <p class="eyebrow">FIND US</p>
+    <h2>Come through, or we'll come to you.</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Hours</h3>
+      <p>Mon – Sat: 9am – 9pm<br>Sunday: 12pm – 8pm</p>
+    </div>
+    <div class="contact-card">
+      <h3>Location</h3>
+      <p>Replace with your address<br>Abuja, FCT, Nigeria</p>
+    </div>
+    <div class="contact-card">
+      <h3>Talk To Us</h3>
+      <p><a href="https://wa.me/2340000000000" target="_blank" rel="noopener">WhatsApp: +234 000 000 0000</a><br>
+      <a href="mailto:hello@rookieskitchen.com">hello@rookieskitchen.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> The Rookies Kitchen. All rights reserved.</p>
+</footer>
+
+<!-- ============ ORDER TICKET (CART) ============ -->
+<div class="ticket-overlay" id="ticketOverlay"></div>
+<aside class="ticket" id="ticket">
+  <div class="ticket-header">
+    <span>ORDER TICKET</span>
+    <button class="ticket-close" id="ticketClose" aria-label="Close">✕</button>
+  </div>
+  <div class="ticket-body" id="ticketBody">
+    <p class="ticket-empty">Your tray is empty. Go pick something good.</p>
+  </div>
+  <div class="ticket-footer">
+    <div class="ticket-total-row">
+      <span>TOTAL</span>
+      <span id="ticketTotal">₦0</span>
+    </div>
+    <input type="text" id="custName" placeholder="Your name" class="ticket-input">
+    <input type="text" id="custAddress" placeholder="Delivery address (or 'Pickup')" class="ticket-input">
+    <button class="btn btn-send" id="sendOrderBtn">Send Order to WhatsApp →</button>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
