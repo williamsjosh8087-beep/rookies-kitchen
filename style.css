@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CORE VARIABLES & STYLES
+   1. CORE VARIABLES & RESET
    ========================================================================== */
 :root {
   --bg: #1c1917;
@@ -24,47 +24,60 @@
 body {
   background-color: var(--bg);
   color: var(--primary);
-  padding-top: 70px;
+  padding-top: 90px;
   padding-bottom: 40px;
 }
 
 /* ==========================================================================
-   2. FIX: SLEEK FULL-WIDTH TOP HEADER BANNER
+   2. AGGRESSIVE FIX FOR THE GIANT TEXT (BANNER STYLE)
    ========================================================================== */
-#nav, header {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* This kills the giant font sizes, line heights, and red drop shadows everywhere in the top sections */
+#nav, header, .nav, .header, .hero, [class*="hero"], [class*="nav"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
-  height: 70px;
-  background: rgba(28, 25, 23, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  height: auto !important;
+  min-height: 60px !important;
+  background: rgba(28, 25, 23, 0.98) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border) !important;
   display: flex !important;
+  flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  padding: 0 20px !important;
-  z-index: 100;
-  transition: box-shadow 0.3s ease;
+  padding: 10px 20px !important;
+  z-index: 1000 !important;
 }
 
-/* Forces the text to be a clean, beautiful horizontal banner */
-.brand-name, nav h1, header h1, #nav h1 {
-  font-size: clamp(0.95rem, 3vw, 1.3rem) !important;
+/* Forces the text to instantly become a small, elegant horizontal banner */
+#nav h1, header h1, .brand-name, .hero h1, .hero-title, h1 {
+  font-size: clamp(0.85rem, 2.5vw, 1.2rem) !important;
+  line-height: 1.2 !important;
   font-weight: 600 !important;
-  letter-spacing: 0.15em !important;
+  letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   text-align: center !important;
   width: 100% !important;
   white-space: nowrap !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   margin: 0 auto !important;
+  padding: 4px 0 !important;
   display: block !important;
-  text-shadow: none !important;
+  text-shadow: none !important; /* Strips the giant red shadow entirely */
   color: var(--primary) !important;
+  box-shadow: none !important;
+}
+
+/* Small ticker line adjustment if present */
+.top-ticker, [class*="ticker"] {
+  font-size: 0.65rem !important;
+  letter-spacing: 0.2em !important;
+  margin-bottom: 2px !important;
+  opacity: 0.8;
 }
 
 /* ==========================================================================
@@ -138,7 +151,6 @@ body {
   font-size: 0.85rem;
 }
 
-/* Sleek Video Watch Button overlay */
 .watch-btn {
   position: absolute;
   top: 12px;
@@ -216,7 +228,7 @@ body {
 }
 
 /* ==========================================================================
-   5. CART FLOATING BUTTON & SLIDE-OUT TICKET
+   5. CART FLOATING BUTTON & TICKET
    ========================================================================== */
 .cart-floating-btn {
   position: fixed;
