@@ -258,3 +258,23 @@ button{font-family:inherit;cursor:pointer;border:none;}
   border:none;cursor:pointer;
 }
 .watch-btn:hover{background:var(--red);}
+
+/* Make the top navigation text spread evenly across the top header bar */
+#nav, header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Style the text to look clean, modern, and take up the wide space */
+.brand-name, nav h1, header h1 { 
+  width: 100%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.5rem 0;
+}
