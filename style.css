@@ -24,12 +24,12 @@
 body {
   background-color: var(--bg);
   color: var(--primary);
-  padding-top: 110px; /* Gives perfect breathing room below fixed header */
+  padding-top: 110px;
   padding-bottom: 40px;
 }
 
 /* ==========================================================================
-   2. THE BANNER REWRITE (CLEAN & WRAPS BEAUTIFULLY)
+   2. THE BANNER REWRITE
    ========================================================================== */
 #nav, header {
   position: fixed !important;
@@ -67,14 +67,47 @@ body {
 .top-ticker {
   font-size: 0.65rem !important;
   letter-spacing: 0.25em !important;
-  color: #f59e0b !important; /* Gold accent */
+  color: #f59e0b !important;
   margin-bottom: 5px !important;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 /* ==========================================================================
-   3. CONTAINER & CATEGORIES
+   3. ABOUT US CARD SECTION
+   ========================================================================== */
+.about-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0 30px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.about-section h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #f59e0b;
+  margin-bottom: 12px;
+}
+
+.about-section p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--primary);
+  opacity: 0.9;
+}
+
+.about-section strong {
+  color: #FAF6F0;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   4. CONTAINER & CATEGORIES
    ========================================================================== */
 .container {
   max-width: 1200px;
@@ -114,7 +147,7 @@ body {
 }
 
 /* ==========================================================================
-   4. PRODUCTS CONTAINER GRID
+   5. PRODUCTS CONTAINER GRID
    ========================================================================== */
 .menu-grid {
   display: grid;
@@ -132,7 +165,7 @@ body {
 }
 
 .dish-img {
-  height: 220px; /* Slightly taller for better image preview crop */
+  height: 220px;
   background-color: #2a2522;
   background-size: cover;
   background-position: center;
@@ -222,7 +255,7 @@ body {
 }
 
 /* ==========================================================================
-   5. TICKET INTERFACE
+   6. TICKET INTERFACE
    ========================================================================== */
 .cart-floating-btn {
   position: fixed;
@@ -352,7 +385,7 @@ body {
 }
 
 /* ==========================================================================
-   6. CHECKOUT DATA INPUTS
+   7. CHECKOUT DATA INPUTS
    ========================================================================== */
 .customer-info {
   padding: 20px;
@@ -418,7 +451,7 @@ body {
 }
 
 /* ==========================================================================
-   7. FOOTER STYLING
+   8. FOOTER STYLING
    ========================================================================== */
 footer {
   text-align: center;
