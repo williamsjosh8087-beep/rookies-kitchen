@@ -26,7 +26,7 @@ const MENU = [
   { id: "m11", name: "Catfish Peppersoup & Unripe Plantain", price: 4200, desc: "Hot catfish peppersoup served with plantain.", category: "mains", image: "", video: "HNp8XPbWgtk" },
   { id: "d1", name: "Chapman", price: 2000, desc: "House-mixed Chapman, ice cold.", category: "drinks", image: "" },
   { id: "d2", name: "Zobo", price: 1500, desc: "Hibiscus zobo, ginger & fruit infused.", category: "drinks", image: "" },
-  { id: "d3", name: "Soft Drink (Can)", price: 1000, desc: "Coke, Fanta, or Sprite.", category: "drinks", image: "" },
+  { id: "d3", name: "Soft Drink (Can)", price: 1000, desc: "Coke, Fanta, or Sprite.", category: "drinks", image: "" }
 ];
 
 // ============================================
@@ -87,6 +87,7 @@ function updateCartUI() {
   cartCount.textContent = totalQty;
 
   const entries = Object.entries(cart).filter(([, qty]) => qty > 0);
+
   if (entries.length === 0) {
     ticketBody.innerHTML = `<p class="ticket-empty">Your tray is empty. Go pick something good.</p>`;
     ticketTotal.textContent = formatNaira(0);
@@ -112,6 +113,7 @@ function updateCartUI() {
       </div>
     `;
   }).join("");
+
   ticketTotal.textContent = formatNaira(total);
 
   ticketBody.querySelectorAll("[data-action]").forEach(btn => {
@@ -131,6 +133,7 @@ function openTicket() {
   ticket.classList.add("show");
   ticketOverlay.classList.add("show");
 }
+
 function closeTicket() {
   ticket.classList.remove("show");
   ticketOverlay.classList.remove("show");
@@ -157,4 +160,32 @@ document.getElementById("sendOrderBtn").addEventListener("click", () => {
   }
 
   const name = document.getElementById("custName").value.trim() || "Not provided";
-  const
+  const address = document.getElementById("custAddress").value.trim() || "Not provided";
+
+  let message = "🧾 *NEW ORDER — The Rookies Kitchen*\n\n";
+  let total = 0;
+
+  entries.forEach(([id, qty]) => {
+    const item = MENU.find(i => i.id === id);
+    const lineTotal = item.price * qty;
+    total += lineTotal;
+    message += `• ${item.name} x${qty} — ${formatNaira(lineTotal)}\n`;
+  });
+
+  message += `\n*Total: ${formatNaira(total)}*\n\n`;
+  message += `👤 Name: ${name}\n📍 Address: ${address}\n`;
+
+  const encoded = encodeURIComponent(message);
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+  window.open(url, "_blank");
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+window.addEventListener("scroll", () => {
+  const nav = document.getElementById("nav");
+  nav.style.boxShadow = window.scrollY > 20 ? "0 4px 20px rgba(0,0,0,.3)" : "none";
+});
+
+renderMenu();
+updateCartUI();
