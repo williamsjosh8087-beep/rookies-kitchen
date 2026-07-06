@@ -1,24 +1,29 @@
 // ============================================
 // EDIT THIS: your WhatsApp business number
-// Format: country code + number, NO + sign, NO spaces, NO leading zero
-// Example Nigeria number 0801 234 5678 -> "2348012345678"
 // ============================================
 const WHATSAPP_NUMBER = "2347071721405";
 
 // ============================================
 // EDIT THIS: your menu
-// Add/remove items freely. category must match a tab data-cat value: mains | sides | drinks
-// image: leave "" to show a placeholder, or set to an image path/URL e.g. "images/jollof.jpg"
+// video: the YouTube video ID only (the part after "shorts/" or "v=" in the URL)
 // ============================================
 const MENU = [
-  { id: "m1", name: "Jollof Rice & Chicken", price: 3500, desc: "Smoky party jollof rice with a quarter grilled chicken.", category: "mains", image: "" },
-  { id: "m2", name: "Egusi Soup & Pounded Yam", price: 4000, desc: "Melon seed soup with assorted meat and pounded yam.", category: "mains", image: "" },
-  { id: "m3", name: "Ofada Rice & Ayamase Sauce", price: 4500, desc: "Local rice with spicy green pepper sauce and assorted meat.", category: "mains", image: "" },
-  { id: "m4", name: "Pepper Soup (Goat Meat)", price: 3800, desc: "Hot, spicy broth with tender goat meat.", category: "mains", image: "" },
-  { id: "m5", name: "Fried Rice & Turkey", price: 3700, desc: "Nigerian-style fried rice with mixed vegetables and turkey.", category: "mains", image: "" },
-  { id: "s1", name: "Moin Moin", price: 1000, desc: "Steamed bean pudding with egg and fish.", category: "sides", image: "" },
-  { id: "s2", name: "Fried Plantain (Dodo)", price: 1200, desc: "Sweet, golden, crisp-edged plantain.", category: "sides", image: "" },
-  { id: "s3", name: "Efo Riro", price: 1800, desc: "Rich vegetable soup with assorted meat and fish.", category: "sides", image: "" },
+  { id: "m1", name: "Colorful Homemade Fried Rice", price: 3200, desc: "Vibrant, veg-packed homemade fried rice.", category: "mains", image: "", video: "aT6mqfQLj28" },
+  { id: "m2", name: "Delicious Fried Noodles", price: 2500, desc: "Stir-fried noodles, packed with flavor.", category: "mains", image: "", video: "aT6mqfQLj28" },
+  { id: "s1", name: "Freshly Baked Meat Pie", price: 800, desc: "Flaky pastry, savory meat filling.", category: "sides", image: "", video: "d1FpdofRV94" },
+  { id: "s2", name: "Soft Homemade Moi Moi", price: 1000, desc: "Steamed bean pudding, soft and rich.", category: "sides", image: "", video: "kW0J40FpJcc" },
+  { id: "m3", name: "Chicken Indomie", price: 2200, desc: "Spiced instant noodles loaded with chicken.", category: "mains", image: "", video: "vsWp7ASAV5Y" },
+  { id: "m4", name: "Yam and Egg Sauce", price: 2800, desc: "Boiled yam with rich, peppered egg sauce.", category: "mains", image: "", video: "klHYWombIpc" },
+  { id: "m5", name: "Delicious Yam Porridge", price: 3000, desc: "Soft yam simmered in a savory red sauce.", category: "mains", image: "", video: "4W0LYgFq874" },
+  { id: "m6", name: "Rich Egusi Soup", price: 3500, desc: "Melon seed soup with assorted meat.", category: "mains", image: "", video: "QX5KpBKhzy8" },
+  { id: "s3", name: "Soft Milky Donuts", price: 1500, desc: "Soft, fluffy, lightly sweet donuts.", category: "sides", image: "", video: "MaNbq16d5-E" },
+  { id: "m7", name: "Fresh Palm Oil Rice", price: 3000, desc: "Rice cooked in rich, fresh palm oil sauce.", category: "mains", image: "", video: "CpWXFRpckno" },
+  { id: "s4", name: "Chin Chin", price: 1000, desc: "Crunchy, sweet fried snack.", category: "sides", image: "", video: "7tJYxHxSe8U" },
+  { id: "m8", name: "Seasoned Chicken", price: 3200, desc: "Well-seasoned, perfectly grilled chicken.", category: "mains", image: "", video: "E95PN2xsWz0" },
+  { id: "s5", name: "Akara", price: 600, desc: "Deep-fried bean cakes, crispy outside, soft inside.", category: "sides", image: "", video: "zMUx8JpBZGc" },
+  { id: "m9", name: "Intestine Peppersoup", price: 3800, desc: "Spicy, hot peppersoup made with intestine.", category: "mains", image: "", video: "Ee887ldwcfY" },
+  { id: "m10", name: "Fried Rice", price: 3000, desc: "Classic Nigerian-style fried rice.", category: "mains", image: "", video: "MYszkhrnx3Q" },
+  { id: "m11", name: "Catfish Peppersoup & Unripe Plantain", price: 4200, desc: "Hot catfish peppersoup served with plantain.", category: "mains", image: "", video: "HNp8XPbWgtk" },
   { id: "d1", name: "Chapman", price: 2000, desc: "House-mixed Chapman, ice cold.", category: "drinks", image: "" },
   { id: "d2", name: "Zobo", price: 1500, desc: "Hibiscus zobo, ginger & fruit infused.", category: "drinks", image: "" },
   { id: "d3", name: "Soft Drink (Can)", price: 1000, desc: "Coke, Fanta, or Sprite.", category: "drinks", image: "" },
@@ -27,7 +32,7 @@ const MENU = [
 // ============================================
 // State
 // ============================================
-let cart = {}; // { itemId: qty }
+let cart = {};
 let activeCategory = "mains";
 
 const menuGrid = document.getElementById("menuGrid");
@@ -47,6 +52,7 @@ function renderMenu() {
     <div class="dish-card">
       <div class="dish-img" style="${item.image ? `background-image:url('${item.image}')` : ""}">
         ${item.image ? "" : "Add photo here"}
+        ${item.video ? `<button class="watch-btn" data-video="${item.video}">▶ Watch</button>` : ""}
       </div>
       <div class="dish-body">
         <div class="dish-name">${item.name}</div>
@@ -65,6 +71,13 @@ function renderMenu() {
       cart[id] = (cart[id] || 0) + 1;
       updateCartUI();
       openTicket();
+    });
+  });
+
+  menuGrid.querySelectorAll(".watch-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const videoId = btn.dataset.video;
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
     });
   });
 }
@@ -136,9 +149,6 @@ document.getElementById("menuTabs").addEventListener("click", (e) => {
   renderMenu();
 });
 
-// ============================================
-// Build the WhatsApp message and send
-// ============================================
 document.getElementById("sendOrderBtn").addEventListener("click", () => {
   const entries = Object.entries(cart).filter(([, qty]) => qty > 0);
   if (entries.length === 0) {
@@ -147,33 +157,4 @@ document.getElementById("sendOrderBtn").addEventListener("click", () => {
   }
 
   const name = document.getElementById("custName").value.trim() || "Not provided";
-  const address = document.getElementById("custAddress").value.trim() || "Not provided";
-
-  let message = "🧾 *NEW ORDER — The Rookies Kitchen*\n\n";
-  let total = 0;
-  entries.forEach(([id, qty]) => {
-    const item = MENU.find(i => i.id === id);
-    const lineTotal = item.price * qty;
-    total += lineTotal;
-    message += `• ${item.name} x${qty} — ${formatNaira(lineTotal)}\n`;
-  });
-  message += `\n*Total: ${formatNaira(total)}*\n\n`;
-  message += `👤 Name: ${name}\n📍 Address: ${address}\n`;
-
-  const encoded = encodeURIComponent(message);
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
-  window.open(url, "_blank");
-});
-
-// ============================================
-// Nav background on scroll + footer year
-// ============================================
-document.getElementById("year").textContent = new Date().getFullYear();
-
-window.addEventListener("scroll", () => {
-  const nav = document.getElementById("nav");
-  nav.style.boxShadow = window.scrollY > 20 ? "0 4px 20px rgba(0,0,0,.3)" : "none";
-});
-
-renderMenu();
-updateCartUI();
+  const
