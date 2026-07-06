@@ -11,13 +11,14 @@ const WHATSAPP_NUMBER = "2347071721405";
 // image: leave "" to show a placeholder, or set to an image path/URL e.g. "images/jollof.jpg"
 // ============================================
 const MENU = [
-  { id: "m1", name: "Suya Platter", price: 4500, desc: "Char-grilled beef suya, spiced yaji, onions & tomato.", category: "mains", image: "" },
-  { id: "m2", name: "Jollof & Grilled Chicken", price: 5000, desc: "Smoky party jollof rice with a quarter grilled chicken.", category: "mains", image: "" },
-  { id: "m3", name: "Smash Burger", price: 4000, desc: "Double smashed beef patty, cheese, house sauce, brioche.", category: "mains", image: "" },
-  { id: "m4", name: "Chicken Shawarma", price: 3500, desc: "Loaded shawarma wrap, garlic sauce, fries inside.", category: "mains", image: "" },
-  { id: "s1", name: "Fried Plantain", price: 1500, desc: "Sweet, golden, crisp-edged plantain.", category: "sides", image: "" },
-  { id: "s2", name: "Peppered Fries", price: 2000, desc: "Crispy fries tossed in pepper sauce.", category: "sides", image: "" },
-  { id: "s3", name: "Coleslaw", price: 1200, desc: "Fresh, creamy, tangy house slaw.", category: "sides", image: "" },
+  { id: "m1", name: "Jollof Rice & Chicken", price: 3500, desc: "Smoky party jollof rice with a quarter grilled chicken.", category: "mains", image: "" },
+  { id: "m2", name: "Egusi Soup & Pounded Yam", price: 4000, desc: "Melon seed soup with assorted meat and pounded yam.", category: "mains", image: "" },
+  { id: "m3", name: "Ofada Rice & Ayamase Sauce", price: 4500, desc: "Local rice with spicy green pepper sauce and assorted meat.", category: "mains", image: "" },
+  { id: "m4", name: "Pepper Soup (Goat Meat)", price: 3800, desc: "Hot, spicy broth with tender goat meat.", category: "mains", image: "" },
+  { id: "m5", name: "Fried Rice & Turkey", price: 3700, desc: "Nigerian-style fried rice with mixed vegetables and turkey.", category: "mains", image: "" },
+  { id: "s1", name: "Moin Moin", price: 1000, desc: "Steamed bean pudding with egg and fish.", category: "sides", image: "" },
+  { id: "s2", name: "Fried Plantain (Dodo)", price: 1200, desc: "Sweet, golden, crisp-edged plantain.", category: "sides", image: "" },
+  { id: "s3", name: "Efo Riro", price: 1800, desc: "Rich vegetable soup with assorted meat and fish.", category: "sides", image: "" },
   { id: "d1", name: "Chapman", price: 2000, desc: "House-mixed Chapman, ice cold.", category: "drinks", image: "" },
   { id: "d2", name: "Zobo", price: 1500, desc: "Hibiscus zobo, ginger & fruit infused.", category: "drinks", image: "" },
   { id: "d3", name: "Soft Drink (Can)", price: 1000, desc: "Coke, Fanta, or Sprite.", category: "drinks", image: "" },
