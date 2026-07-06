@@ -250,3 +250,11 @@ button{font-family:inherit;cursor:pointer;border:none;}
   .about-grid{grid-template-columns:1fr;}
   .hero-title{text-shadow:4px 4px 0 var(--red);}
 }
+.watch-btn{
+  position:absolute;top:10px;left:10px;
+  background:rgba(28,25,23,.75);color:#FAF6F0;
+  padding:.35rem .7rem;border-radius:100px;
+  font-size:.75rem;font-weight:700;letter-spacing:.02em;
+  border:none;cursor:pointer;
+}
+.watch-btn:hover{background:var(--red);}
