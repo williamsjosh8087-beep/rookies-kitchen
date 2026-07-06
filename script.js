@@ -48,22 +48,30 @@ function formatNaira(n) {
 
 function renderMenu() {
   const items = MENU.filter(i => i.category === activeCategory);
-  menuGrid.innerHTML = items.map(item => `
-    <div class="dish-card">
-      <div class="dish-img" style="${item.image ? `background-image:url('${item.image}')` : ""}">
-        ${item.image ? "" : "Add photo here"}
-        ${item.video ? `<button class="watch-btn" data-video="${item.video}">▶ Watch</button>` : ""}
-      </div>
-      <div class="dish-body">
-        <div class="dish-name">${item.name}</div>
-        <div class="dish-desc">${item.desc}</div>
-        <div class="dish-footer">
-          <span class="dish-price">${formatNaira(item.price)}</span>
-          <button class="add-btn" data-id="${item.id}" aria-label="Add ${item.name} to order">+</button>
+  menuGrid.innerHTML = items.map(item => {
+    // Automatically grab picture from YouTube thumbnail if no image is supplied
+    let displayImage = item.image;
+    if (!displayImage && item.video) {
+      displayImage = `https://img.youtube.com/vi/${item.video}/hqdefault.jpg`;
+    }
+
+    return `
+      <div class="dish-card">
+        <div class="dish-img" style="${displayImage ? `background-image:url('${displayImage}')` : ""}">
+          ${displayImage ? "" : "Add photo here"}
+          ${item.video ? `<button class="watch-btn" data-video="${item.video}">▶ Watch</button>` : ""}
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">${item.name}</div>
+          <div class="dish-desc">${item.desc}</div>
+          <div class="dish-footer">
+            <span class="dish-price">${formatNaira(item.price)}</span>
+            <button class="add-btn" data-id="${item.id}" aria-label="Add ${item.name} to order">+</button>
+          </div>
         </div>
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 
   menuGrid.querySelectorAll(".add-btn").forEach(btn => {
     btn.addEventListener("click", () => {
