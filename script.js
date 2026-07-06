@@ -3,7 +3,7 @@
 // Format: country code + number, NO + sign, NO spaces, NO leading zero
 // Example Nigeria number 0801 234 5678 -> "2348012345678"
 // ============================================
-const WHATSAPP_NUMBER = "2340000000000";
+const WHATSAPP_NUMBER = "2347071721405";
 
 // ============================================
 // EDIT THIS: your menu
